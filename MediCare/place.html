@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicure - Order Preview</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Medicure - Order Preview</h1>
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab('preview')">Order Preview</button>
+            <button class="tablinks" onclick="openTab('address')">Address Details</button>
+            <button class="tablinks" onclick="openTab('payment')">Payment Method</button>
+        </div>
+
+        <!-- Order Preview -->
+        <div id="preview" class="tabcontent">
+            <h3>Order Details</h3>
+            <p>Store: ABC Pharmacy</p>
+            <p>Item: Medicine X</p>
+            <p>Price: $20.00</p>
+            <p>Quantity: 2</p>
+            <button class="next-button" onclick="nextTab('address')">Next</button>
+        </div>
+
+        <!-- Address Details -->
+        <div id="address" class="tabcontent">
+            <h3>Address Details</h3>
+            <form id="address-form">
+                <label for="address">Street Address:</label>
+                <input type="text" id="address" name="address" required>
+                <br>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                <br>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+                <br>
+                <label for="zip">ZIP Code:</label>
+                <input type="text" id="zip" name="zip" required>
+                <br>
+                <div class="feedback" id="address-feedback"></div>
+                <button class="next-button" onclick="nextTab('payment')">Next</button>
+                <button class="use-pre-filled-button" onclick="usePreFilledAddress()">Use Pre-filled Address</button>
+            </form>
+        </div>
+
+        <!-- Payment Method -->
+        <div id="payment" class="tabcontent">
+            <h3>Payment Method</h3>
+            <form id="payment-form">
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment-method" name="payment-method">
+                    <option value="credit-card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="cash">Cash on Delivery</option>
+                </select>
+                <br>
+                <div class="feedback" id="payment-feedback"></div>
+                <button class="next-button" onclick="placeOrder()">Place Order</button>
+            </form>
+        </div>
+
+        <button class="dark-mode-button" id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

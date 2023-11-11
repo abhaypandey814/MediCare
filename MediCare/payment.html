@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .payment-form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment</h1>
+    <div class="payment-form">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" placeholder="Card Number" required><br>
+
+        <label for="expiry">Expiry:</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required><br>
+
+        <label for="cvv">CVV:</label>
+        <input type="number" id="cvv" placeholder="CVV" required><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Amount" required><br>
+
+        <button id="pay-button">Pay</button>
+    </div>
+
+    <script>
+        document.getElementById("pay-button").addEventListener("click", function() {
+            const cardNumber = document.getElementById("card-number").value;
+            const expiry = document.getElementById("expiry").value;
+            const cvv = document.getElementById("cvv").value;
+            const amount = document.getElementById("amount").value;
+
+            // Here, you can perform validation and send the payment data to your payment provider's API.
+            // In a real-world scenario, you would integrate with a payment service provider like Stripe or PayPal to securely handle payments.
+
+            // For this example, we'll just display the payment details in the console:
+            console.log("Card Number:", cardNumber);
+            console.log("Expiry:", expiry);
+            console.log("CVV:", cvv);
+            console.log("Amount:", amount);
+        });
+    </script>
+</body>
+</html>
